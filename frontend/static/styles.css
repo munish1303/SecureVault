@@ -108,10 +108,10 @@ a {
 }
 
 .sidebar {
-    width: 300px;
-    padding: 28px 22px;
+    width: 278px;
+    padding: 24px 18px;
     background: rgba(5, 11, 21, 0.88);
-    border-right: 1px solid rgba(157, 181, 217, 0.10);
+    border-right: 1px solid rgba(157, 181, 217, 0.08);
     backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
@@ -119,6 +119,7 @@ a {
     position: sticky;
     top: 0;
     align-self: flex-start;
+    gap: 16px;
 }
 
 .sidebar-top,
@@ -127,29 +128,30 @@ a {
     border: 1px solid rgba(157, 181, 217, 0.10);
     background: rgba(12, 22, 40, 0.62);
     border-radius: 24px;
-    padding: 18px;
+    padding: 16px;
 }
 
 .sidebar-top {
     display: flex;
-    gap: 16px;
+    gap: 14px;
     align-items: center;
 }
 
 .brand-mark {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
+    width: 58px;
+    height: 58px;
+    border-radius: 20px;
     display: grid;
     place-items: center;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #04101b;
     font-family: "Space Grotesk", sans-serif;
     font-weight: 800;
+    box-shadow: 0 10px 30px rgba(62, 207, 142, 0.18);
 }
 
 .sidebar h1 {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
 }
 
 .muted {
@@ -858,8 +860,6 @@ textarea {
         width: 100%;
         gap: 18px;
         position: static;
-        height: auto;
-        overflow-y: visible;
     }
 
     .topbar,
@@ -892,5 +892,3 @@ textarea {
         padding: 20px;
     }
 }
-
-
