@@ -1,143 +1,168 @@
 {% extends "base.html" %}
 {% block title %}Dashboard | Secure Vault{% endblock %}
-{% block page_heading %}Vault Overview{% endblock %}
+{% block page_heading %}Vault Command Center{% endblock %}
 {% block content %}
-<section class="hero-banner">
-    <div class="hero-banner-copy">
-        <span class="eyebrow">Vault Overview</span>
-        <h3>Your encrypted workspace at a glance</h3>
-        <p>Passwords stay encrypted at rest, reveal actions require master-password verification, and recent events are tracked for audit visibility.</p>
-    </div>
-    <div class="hero-banner-actions">
-        <div class="stat-card compact-stat">
-            <span class="stat-label">Saved items</span>
-            <strong>{{ entries|length }}</strong>
+<section class="command-hero">
+    <div class="hero-main-panel">
+        <div class="hero-main-copy">
+            <span class="page-kicker">Threat-Aware Workspace</span>
+            <h3>Monitor, manage, and protect credential assets from a live security console.</h3>
+            <p>Credential storage, access verification, and operator activity are surfaced in one tactical workspace designed for fast review and controlled actions.</p>
         </div>
-        <a href="{{ url_for('add_password') }}" class="button primary">Add Credential</a>
+        <div class="hero-actions">
+            <a href="{{ url_for('add_password') }}" class="button primary">Add Credential</a>
+            <a href="{{ url_for('tools') }}" class="button secondary">Open Security Tools</a>
+            <form method="post" action="{{ url_for('trigger_test_alert') }}">
+                <button type="submit" class="button secondary">Trigger Test Alert</button>
+            </form>
+            <form method="post" action="{{ url_for('clear_test_alert') }}">
+                <button type="submit" class="button secondary">Clear Test Alert</button>
+            </form>
+        </div>
+    </div>
+    <div class="hero-side-panel">
+        <span class="panel-tag">Live Status</span>
+        <div class="status-number">{{ entries|length }}</div>
+        <p>Encrypted records currently secured inside the vault.</p>
     </div>
 </section>
 
-<section class="stats-grid">
-    <article class="stat-card">
-        <span class="stat-label">Stored Credentials</span>
+<section class="metrics-grid">
+    <article class="metric-panel">
+        <span class="panel-tag">Credential Assets</span>
         <strong>{{ entries|length }}</strong>
-        <p>Encrypted website and app logins inside your vault.</p>
+        <p>Stored website and application credentials.</p>
     </article>
-    <article class="stat-card">
-        <span class="stat-label">Recent Activity</span>
+    <article class="metric-panel">
+        <span class="panel-tag">Audit Events</span>
         <strong>{{ logs|length }}</strong>
-        <p>Tracked actions available for review and anomaly detection.</p>
+        <p>Recent monitored actions captured by the activity log.</p>
     </article>
-    <article class="stat-card">
-        <span class="stat-label">Security Alerts</span>
+    <article class="metric-panel">
+        <span class="panel-tag">Alert Count</span>
         <strong>{{ alerts|length }}</strong>
-        <p>Warnings triggered by suspicious behavior and failed login patterns.</p>
+        <p>Suspicious patterns and lockout-related signals.</p>
+    </article>
+    <article class="metric-panel metric-panel-highlight">
+        <span class="panel-tag">Protection Mode</span>
+        <strong>ACTIVE</strong>
+        <p>Master-password reconfirmation is enabled for sensitive actions.</p>
     </article>
 </section>
 
-{% if alerts %}
-<section class="panel panel-strong">
-    <div class="panel-head">
-        <div>
-            <p class="eyebrow">Security Alerts</p>
-            <h3>Review unusual activity</h3>
-        </div>
-    </div>
-    <div class="alert-grid">
-        {% for alert in alerts %}
-        <div class="alert-card {{ alert.level }}">
-            <strong>{{ alert.level|upper }}</strong>
-            <p>{{ alert.message }}</p>
-        </div>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
-
-<section class="panel panel-strong">
-    <div class="panel-head">
-        <div>
-            <p class="eyebrow">Stored Passwords</p>
-            <h3>Credential inventory</h3>
-        </div>
-    </div>
-    {% if entries %}
-    <div class="table-wrap polished-table-wrap">
-        <table class="vault-table">
-            <thead>
-                <tr>
-                    <th>Site</th>
-                    <th>Username</th>
-                    <th>Notes</th>
-                    <th>Updated</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for entry in entries %}
-                <tr>
-                    <td>
-                        <div class="entry-site">
-                            <span class="entry-badge">{{ entry.site[:1]|upper }}</span>
-                            <div>
-                                <strong>{{ entry.site }}</strong>
-                                <small>Credential item</small>
-                            </div>
-                        </div>
-                    </td>
-                    <td>{{ entry.username }}</td>
-                    <td>{{ entry.notes or 'No notes' }}</td>
-                    <td>{{ entry.updated_at|datetime }}</td>
-                    <td class="actions">
-                        <button class="button small reveal-btn" data-entry-id="{{ entry.id }}" data-site="{{ entry.site }}">Reveal</button>
-                        <a href="{{ url_for('edit_password', entry_id=entry.id) }}" class="button small secondary">Edit</a>
-                        <button class="button small danger delete-btn" data-entry-id="{{ entry.id }}" data-site="{{ entry.site }}">Delete</button>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% else %}
-    <div class="empty-state-panel">
-        <div class="empty-state-mark">01</div>
-        <div>
-            <h4>Your vault is ready for its first credential.</h4>
-            <p>Add a website, app, or service login to start building a secure encrypted inventory.</p>
-        </div>
-    </div>
-    {% endif %}
-</section>
-
-<section class="panel split-panel split-panel-uneven">
-    <div>
-        <div class="panel-head">
-            <div>
-                <p class="eyebrow">Recent Activity</p>
-                <h3>Audit trail</h3>
+<section class="ops-grid">
+    <div class="ops-main">
+        <section class="console-panel light-panel">
+            <div class="console-head">
+                <div>
+                    <span class="panel-tag dark-tag">Vault Table</span>
+                    <h3>Stored passwords</h3>
+                </div>
+                <div class="mini-chip">Authenticated access only</div>
             </div>
-        </div>
-        <ul class="log-list refined-log-list">
-            {% for log in logs %}
-            <li>
-                <span class="log-pill">{{ log.action.replace('_', ' ') }}</span>
-                <strong>{{ log.details or 'No details provided.' }}</strong>
-                <time>{{ log.timestamp|datetime }}</time>
-            </li>
-            {% endfor %}
-        </ul>
+            {% if entries %}
+            <div class="command-table-wrap">
+                <table class="command-table">
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Identity</th>
+                            <th>Notes</th>
+                            <th>Updated</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in entries %}
+                        <tr>
+                            <td>
+                                <div class="asset-block">
+                                    <span class="asset-sigil">{{ entry.site[:1]|upper }}</span>
+                                    <div>
+                                        <strong>{{ entry.site }}</strong>
+                                        <small>Encrypted credential asset</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{ entry.username }}</td>
+                            <td>{{ entry.notes or 'No notes' }}</td>
+                            <td>{{ entry.updated_at|datetime }}</td>
+                            <td class="actions">
+                                <button class="button small reveal-btn" data-entry-id="{{ entry.id }}" data-site="{{ entry.site }}">Reveal</button>
+                                <a href="{{ url_for('edit_password', entry_id=entry.id) }}" class="button small secondary">Edit</a>
+                                <button class="button small danger delete-btn" data-entry-id="{{ entry.id }}" data-site="{{ entry.site }}">Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="empty-console-state">
+                <div class="empty-code">EMPTY</div>
+                <div>
+                    <h4>No credential assets are currently loaded.</h4>
+                    <p>Store your first credential to initialize the secure vault inventory.</p>
+                </div>
+            </div>
+            {% endif %}
+        </section>
     </div>
-    <div class="info-card premium-info-card">
-        <p class="eyebrow">Session Controls</p>
-        <h3>Security posture</h3>
-        <p>This application uses Flask sessions and automatically expires inactive sessions after 15 minutes.</p>
-        <p>Revealing, updating, and deleting passwords requires master password confirmation even after login.</p>
-        <div class="mini-points">
-            <span>Session timeout protection</span>
-            <span>Encrypted password-at-rest model</span>
-            <span>Brute-force aware login handling</span>
-        </div>
-    </div>
+
+    <aside class="ops-rail">
+        {% if alerts %}
+        <section class="console-panel rail-panel alert-rail-panel">
+            <div class="console-head tight-head">
+                <div>
+                    <span class="panel-tag">Alerts</span>
+                    <h3>Security alerts</h3>
+                </div>
+            </div>
+            <div class="rail-list">
+                {% for alert in alerts %}
+                <div class="rail-item rail-alert {{ alert.level }}">
+                    <strong>{{ alert.level|upper }}</strong>
+                    <p>{{ alert.message }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <section class="console-panel rail-panel">
+            <div class="console-head tight-head">
+                <div>
+                    <span class="panel-tag">Audit Feed</span>
+                    <h3>Recent activity</h3>
+                </div>
+            </div>
+            <div class="rail-list">
+                {% for log in logs %}
+                <div class="rail-item">
+                    <span class="feed-badge">{{ log.action.replace('_', ' ') }}</span>
+                    <strong>{{ log.details or 'No details provided.' }}</strong>
+                    <time>{{ log.timestamp|datetime }}</time>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="console-panel rail-panel status-panel">
+            <div class="console-head tight-head">
+                <div>
+                    <span class="panel-tag">Protection Posture</span>
+                    <h3>Session controls</h3>
+                </div>
+            </div>
+            <p>This session expires automatically after 15 minutes of inactivity.</p>
+            <p>Reveal, update, and delete operations require master-password verification.</p>
+            <div class="session-badges">
+                <span>Timeout enforced</span>
+                <span>Encrypted at rest</span>
+                <span>Brute-force aware</span>
+            </div>
+        </section>
+    </aside>
 </section>
 
 <div class="modal hidden" id="revealModal">
@@ -177,3 +202,4 @@
     </div>
 </div>
 {% endblock %}
+

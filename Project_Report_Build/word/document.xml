@@ -1,0 +1,298 @@
+﻿<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<w:document xmlns:wpc='http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas' xmlns:cx='http://schemas.microsoft.com/office/drawing/2014/chartex' xmlns:cx1='http://schemas.microsoft.com/office/drawing/2015/9/8/chartex' xmlns:cx2='http://schemas.microsoft.com/office/drawing/2015/10/21/chartex' xmlns:cx3='http://schemas.microsoft.com/office/drawing/2016/5/9/chartex' xmlns:cx4='http://schemas.microsoft.com/office/drawing/2016/5/10/chartex' xmlns:cx5='http://schemas.microsoft.com/office/drawing/2016/5/11/chartex' xmlns:cx6='http://schemas.microsoft.com/office/drawing/2016/5/12/chartex' xmlns:cx7='http://schemas.microsoft.com/office/drawing/2016/5/13/chartex' xmlns:cx8='http://schemas.microsoft.com/office/drawing/2016/5/14/chartex' xmlns:mc='http://schemas.openxmlformats.org/markup-compatibility/2006' xmlns:aink='http://schemas.microsoft.com/office/drawing/2016/ink' xmlns:am3d='http://schemas.microsoft.com/office/drawing/2017/model3d' xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:oel='http://schemas.microsoft.com/office/2019/extlst' xmlns:r='http://schemas.openxmlformats.org/officeDocument/2006/relationships' xmlns:m='http://schemas.openxmlformats.org/officeDocument/2006/math' xmlns:v='urn:schemas-microsoft-com:vml' xmlns:wp14='http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing' xmlns:wp='http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing' xmlns:w10='urn:schemas-microsoft-com:office:word' xmlns:w='http://schemas.openxmlformats.org/wordprocessingml/2006/main' xmlns:w14='http://schemas.microsoft.com/office/word/2010/wordml' xmlns:w15='http://schemas.microsoft.com/office/word/2012/wordml' xmlns:w16cex='http://schemas.microsoft.com/office/word/2018/wordml/cex' xmlns:w16cid='http://schemas.microsoft.com/office/word/2016/wordml/cid' xmlns:w16='http://schemas.microsoft.com/office/word/2018/wordml' xmlns:w16du='http://schemas.microsoft.com/office/word/2023/wordml/word16du' xmlns:w16sdtdh='http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash' xmlns:w16sdtfl='http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock' xmlns:w16se='http://schemas.microsoft.com/office/word/2015/wordml/symex' xmlns:wpg='http://schemas.microsoft.com/office/word/2010/wordprocessingGroup' xmlns:wpi='http://schemas.microsoft.com/office/word/2010/wordprocessingInk' xmlns:wne='http://schemas.microsoft.com/office/word/2006/wordml' xmlns:wps='http://schemas.microsoft.com/office/word/2010/wordprocessingShape' mc:Ignorable='w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14'>
+  <w:body>
+    <w:p><w:pPr><w:pStyle w:val='Title'/></w:pPr><w:r><w:t xml:space='preserve'>Project Report</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>Student Details</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Name 1 - Roll Number</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Name 2 - Roll Number</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Name 3 - Roll Number</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>Project Title</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>Secure Vault: Secure Password Manager with Encryption, Authentication, Logging, and Cybersecurity Command Center UI</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>Abstract</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This project is a secure password manager application built with Python Flask, SQLite, bcrypt, and the cryptography library. The goal of the system is to help a user safely store, manage, retrieve, and protect website and application passwords through strong authentication, hashed master credentials, symmetric encryption, secure session handling, password generation, password strength analysis, activity logging, and security alerts.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The application provides a graphical web interface with separate pages for login, registration, dashboard monitoring, credential management, and security tools. The dashboard was redesigned into a cybersecurity command center style so the user can review stored credentials, activity logs, alerts, and protection status from one operational view. The system also supports starter demo credentials, secure reveal and update flows that require master password verification, suspicious-login alerting, and a manual test alert trigger for UI verification.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This report explains the problem statement, objectives, architecture, implementation details, security model, functional modules, testing approach, strengths, limitations, and future enhancements of the project.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>1. Problem Statement</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>Modern users manage many website and application accounts, and weak password habits often lead to password reuse, unsafe storage, forgotten credentials, and poor visibility into suspicious account activity. Many beginner users also do not clearly understand the difference between hashing, encryption, session handling, and secure password generation.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The problem addressed in this project is how to build a password manager application that:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- stores user master passwords securely using salted hashing,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- encrypts stored credentials before saving them to the database,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- allows controlled password retrieval only after verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- supports password generation and strength analysis,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- logs security-relevant events,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- alerts the user about suspicious activity,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and presents all of these operations in a clean graphical interface suitable for an academic project.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The system should also be modular, secure by design, and easy to understand for learning and demonstration purposes.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>2. Objectives</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The main objectives of this project are:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To build a complete password manager using Python Flask and SQLite.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To store master passwords securely using bcrypt hashing.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To encrypt stored website and application passwords using Fernet encryption.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To derive the encryption key from the user master password instead of storing a plaintext key.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To support secure user registration, login, logout, and session-based access control.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To require master password verification before revealing, updating, or deleting credentials.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To generate strong random passwords with configurable options.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To analyze password strength using length, entropy, and character variety.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To log important actions such as login attempts and password operations.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To generate security alerts for suspicious login patterns and other risky activity.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To organize the code modularly using OOP principles.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- To provide a professional graphical user interface.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>3. Proposed Solution</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The proposed solution is a secure web application called Secure Vault. It uses a modular Flask backend with separate modules for authentication, encryption, database handling, utility functions, and demo seeding. The frontend uses HTML, CSS, and JavaScript templates to provide a multi-page user interface.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The system is divided into the following main pages:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Login page: authenticates the user with a username and master password.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Register page: creates a new user account and prepares secure vault storage.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Dashboard page: shows stored credentials, recent activity, security alerts, protection status, and operational controls.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Add Credential page: lets the user store a new encrypted password.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Edit Credential page: allows secure update of an existing encrypted credential.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Security Tools page: provides password generation and strength analysis.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The system uses SQLite for local persistence. It also includes starter seeded credentials for testing and a test alert trigger for verifying the alert interface.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>4. Technology Stack</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The following technologies were used in this project:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Python for application logic</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Flask for the web framework and routing</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- SQLite for local database storage</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- bcrypt for salted password hashing</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- cryptography library with Fernet for symmetric encryption</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- PBKDF2HMAC with SHA-256 for key derivation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- HTML, CSS, and JavaScript for the graphical user interface</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>Why this stack was chosen</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This stack was chosen because it is practical, lightweight, easy to explain, and suitable for academic submission. Flask allows the application to keep backend routing and frontend templates simple. SQLite removes the setup complexity of a separate database server. bcrypt provides trusted password hashing, while the cryptography library provides strong modern encryption primitives. The overall stack is enough to demonstrate real security concepts without making the project too difficult to run.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>5. System Architecture</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The application follows a modular layered architecture. Each part of the system has a clear job.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>5.1 High-Level Architecture</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>1. The user interacts with the web interface.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>2. Flask routes receive requests from the browser.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>3. The authentication, database, encryption, and utility classes process the request.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>4. SQLite stores or retrieves user records, encrypted credentials, and logs.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>5. The system returns updated data to the interface.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>5.2 Main Modules</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>1. UI Layer</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The UI layer contains the templates and static assets shown to the user. It includes:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- secure access pages,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- command center dashboard,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- credential forms,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password generator panel,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- strength checker panel,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- reveal and delete confirmation modals,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- activity feed,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and security alert panels.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>2. Route Layer</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The Flask route layer handles:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- registration,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- login,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- logout,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- dashboard rendering,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- credential add, view, edit, and delete actions,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password generation API,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password analysis API,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and test alert triggering and clearing.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>3. Security and Service Layer</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The service layer includes:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `AuthService` for registration and login validation,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `EncryptionManager` for key derivation and password encryption/decryption,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `PasswordTools` for generation and strength analysis,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `DemoSeeder` for starter data,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and utility decorators for protected access.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>4. Storage Layer</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The storage layer is handled by `DatabaseManager` and SQLite. It stores:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- users,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- encrypted credentials,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- logs,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- failed login counters,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and lockout timestamps.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This design keeps the project modular and easier to document.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>6. Functional Modules</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.1 User Authentication Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The application includes registration, login, and logout. During registration, the master password is hashed with bcrypt and never stored in plaintext. During login, the entered password is verified against the stored hash. Flask sessions are used to maintain authenticated state.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The login process also includes brute-force protection. If too many failed attempts occur, the account is temporarily locked and a security alert is logged.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.2 Password Management Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This is the core feature of the project. The user can:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- add a new credential,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- view a stored password after master-password confirmation,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- update a credential,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and delete a credential.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>Stored website or app passwords are encrypted before insertion into the database. Revealing, editing, and deleting credentials require re-verification of the master password, even if the user is already logged in.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.3 Dashboard Monitoring Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The dashboard acts like a secure operations console. It displays:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- number of stored credentials,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- recent activity count,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- alert count,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- protection mode status,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- stored credential inventory,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- audit feed,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and security posture details.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This page is the main operational view of the system.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.4 Password Generator Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The tools page includes a generator that can create strong random passwords. The user can configure:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password length,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- uppercase letters,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- numbers,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and symbols.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The generated password can also be copied through the UI.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.5 Password Strength Checker Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The application includes a password strength analyzer that evaluates a password based on:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- length,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- character variety,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and estimated entropy.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The result is shown as weak, medium, or strong with a visual meter.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.6 Activity Logging Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The application logs important actions such as:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- successful and failed logins,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- registration,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- logout,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password add, view, update, and delete actions,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- security alert events,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and test alert triggering.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>These logs are stored in the `logs` table and displayed through the dashboard activity feed.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>6.7 Security Alerts Module</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The system generates alerts for suspicious behavior such as:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- repeated failed logins,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- account lockout periods,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and unusually frequent password reveal actions.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>A manual test alert trigger was also added so the alert UI can be verified during demonstrations.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>7. Workflow of the System</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The basic workflow of the project is:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>1. The user opens the application.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>2. The user registers or logs in.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>3. A secure session is created.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>4. The user enters the dashboard command center.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>5. The user adds, views, edits, or deletes credentials.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>6. Passwords are encrypted before storage and decrypted only after verification.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>7. All important actions are logged.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>8. The dashboard displays alerts and activity.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>9. The user can open the security tools page to generate or analyze passwords.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>8. Screenshots</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The screenshots section can include the following pages:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Login page</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Register page</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Dashboard command center</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Add Credential page</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Edit Credential page</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Security Tools page</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Security alert test view</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>9. Implementation Details</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>9.1 UI Design</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The UI was redesigned from a basic dashboard layout into a cybersecurity command center interface. The final design focuses on:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- a clear left-side navigation rail,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- a command-center style header,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- operational metric panels,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- a tactical credential table,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- a right-side alert and audit rail,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and secure intake and utility console pages.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This design was chosen to make the application look more professional and distinct from a standard student CRUD interface.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>9.2 State Management and Database Logic</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The application uses SQLite for persistent state. The main database file is `database.db`. It stores user accounts, encrypted credentials, and logs. The database layer uses parameterized queries to reduce SQL injection risk.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The session state is handled through Flask sessions, while demo alert visualization uses a temporary session flag.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>9.3 Alert Detection Logic</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The alert detection logic checks for conditions such as:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- multiple failed login attempts in a short time window,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- active account lockout periods,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and unusually frequent password reveal actions.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>These checks are implemented through database lookups and recent log analysis.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>9.4 Security Logic</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The security flow is implemented as follows:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>1. Hash the master password with bcrypt.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>2. Generate a per-user encryption salt.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>3. Derive a Fernet key using PBKDF2HMAC with the master password and salt.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>4. Encrypt stored credentials before database insertion.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>5. Re-derive the key during secure reveal.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>6. Require session authentication and master-password confirmation for sensitive actions.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>10. Security Features</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The main security features of the project are:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- bcrypt salted password hashing</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- PBKDF2-based key derivation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Fernet symmetric encryption for stored credentials</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- no plaintext encryption key storage</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Flask session-based authentication</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- brute-force protection with temporary lockout</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- suspicious login detection</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- security alert generation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- secure password generation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password strength analysis</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- activity logging</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- parameterized SQLite queries</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- secure reveal, update, and delete verification</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- clipboard copy support with timeout clearing attempt</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>These features make the project both functional and security-focused.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>11. Security Analysis</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>11.1 Strengths of the System</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- The system separates hashing and encryption correctly.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- It does not store the vault encryption key in plaintext.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Sensitive actions require re-verification of the master password.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Repeated login failures are monitored and limited.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- The architecture is modular and easier to maintain.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- The UI clearly presents alerts, audit activity, and credential operations.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- The project demonstrates both usability and security concepts in one system.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>11.2 Limitations</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- The application uses SQLite, which is suitable for a local project but not ideal for large multi-user production use.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- CSRF protection is not fully implemented.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Two-factor authentication is not included.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Clipboard clearing is best-effort and depends on browser behavior.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- The current system is designed for educational and local use rather than large-scale deployment.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading2'/></w:pPr><w:r><w:t xml:space='preserve'>11.3 Risk Discussion</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>If this project were extended into a production system, additional hardening would be required, such as:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- CSRF protection,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- stronger secret management,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- HTTPS-only deployment,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- production WSGI deployment,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- rate limiting at the application edge,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- role-based access control,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- multi-factor authentication,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- secure export and import,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and database scaling beyond local SQLite.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>Even with these limitations, the project strongly meets its academic goal because it demonstrates secure password storage, encryption, session control, and cybersecurity-aware UI design in a working system.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>12. Testing and Verification</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The project can be tested through the following checks:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- registration and login verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- logout verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- failed login and lockout verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- credential add, view, update, and delete actions,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password generator testing,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password strength checker testing,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- activity log verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- suspicious alert verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- manual test alert verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- dashboard route verification,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and page-level UI verification.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The current project does not include a dedicated automated test suite. Verification is mainly manual and feature-oriented.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>13. Project Structure Summary</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The source code is organized in a modular way. The main files and folders are:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `backend/app.py` for Flask application setup and routes</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `backend/auth.py` for registration and login services</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `backend/encryption.py` for key derivation and Fernet encryption</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `backend/models.py` for SQLite access and alert logic</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `backend/seeder.py` for starter demo credentials</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `backend/utils.py` for password tools and login protection helpers</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `frontend/templates` for HTML pages</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `frontend/static` for CSS and JavaScript assets</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `database.db` for persistent local storage</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `requirements.txt` for dependencies</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `run.py` for running the application</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- `README.md` for setup and usage information</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This structure makes the project easier to explain, debug, and maintain.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>14. Conclusion</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>This project successfully implements a secure password manager application with a graphical user interface. It supports user authentication, encrypted credential storage, controlled password reveal, password generation, password strength analysis, activity logging, and security alerts.</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>The final system is suitable for academic submission because it is modular, security-focused, visually professional, and practical to run as a local project. It demonstrates important concepts such as hashing, symmetric encryption, key derivation, brute-force protection, session handling, and secure UI design in one complete application.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>15. Future Enhancements</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>In the future, the system can be improved by adding:</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- two-factor authentication,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- CSRF protection,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- PostgreSQL or cloud database support,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- secure encrypted export and import,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- password breach-check integration,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- role-based access control,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- deployment hardening,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- real-time notifications,</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- and cloud-hosted production deployment.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val='Heading1'/></w:pPr><w:r><w:t xml:space='preserve'>16. References</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Flask Documentation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- SQLite Documentation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- bcrypt Documentation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- cryptography Documentation</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- PBKDF2 Key Derivation Concepts</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Fernet Symmetric Encryption Concepts</w:t></w:r></w:p>
+    <w:p><w:r><w:t xml:space='preserve'>- Basic concepts of password manager security</w:t></w:r></w:p>
+    <w:sectPr w:rsidR="0019017F" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:pgSz w:w="12240" w:h="15840" /><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0" /><w:pgNumType w:start="1" /><w:cols w:space="720" /></w:sectPr>
+  </w:body>
+</w:document>

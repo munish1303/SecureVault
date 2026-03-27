@@ -6,48 +6,73 @@
     <title>{% block title %}Secure Vault{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
-    <div class="page-shell">
+    <div class="grid-noise"></div>
+    <div class="orb orb-left"></div>
+    <div class="orb orb-right"></div>
+    <div class="app-shell {% if not session.get('user_id') %}auth-shell{% endif %}">
         {% if session.get('user_id') %}
         <aside class="sidebar">
-            <div class="sidebar-top">
-                <div class="brand-mark">SV</div>
+            <div class="sidebar-brand">
+                <div class="brand-token">SV</div>
                 <div>
                     <h1>Secure Vault</h1>
-                    <p class="muted">Encrypted password workspace</p>
+                    <p>Cybersecurity command center</p>
                 </div>
             </div>
-            <div class="sidebar-panel">
-                <p class="sidebar-label">Workspace</p>
+
+            <div class="sidebar-section">
+                <span class="sidebar-kicker">Navigation</span>
                 <nav class="nav-links">
-                    <a href="{{ url_for('dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">Dashboard</a>
-                    <a href="{{ url_for('add_password') }}" class="{% if active_page == 'add' %}active{% endif %}">Add Password</a>
-                    <a href="{{ url_for('tools') }}" class="{% if active_page == 'tools' %}active{% endif %}">Generator & Strength</a>
-                    <a href="{{ url_for('logout') }}">Logout</a>
+                    <a href="{{ url_for('dashboard') }}" class="nav-link {% if active_page == 'dashboard' %}active{% endif %}">
+                        <span class="nav-index">01</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="{{ url_for('add_password') }}" class="nav-link {% if active_page == 'add' %}active{% endif %}">
+                        <span class="nav-index">02</span>
+                        <span>Add Credential</span>
+                    </a>
+                    <a href="{{ url_for('tools') }}" class="nav-link {% if active_page == 'tools' %}active{% endif %}">
+                        <span class="nav-index">03</span>
+                        <span>Security Tools</span>
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="nav-link nav-link-danger">
+                        <span class="nav-index">04</span>
+                        <span>Logout</span>
+                    </a>
                 </nav>
             </div>
-            <div class="sidebar-footer">
-                <p class="sidebar-label">Current Session</p>
+
+            <div class="sidebar-section session-card">
+                <span class="sidebar-kicker">Operator</span>
                 <strong>{{ session.get('username') }}</strong>
-                <span>Protected by session timeout and master-password verification.</span>
+                <p>Session guarded by timeout and master-password reconfirmation.</p>
+                <div class="session-badges">
+                    <span>Encrypted</span>
+                    <span>Audited</span>
+                    <span>Verified</span>
+                </div>
             </div>
         </aside>
         {% endif %}
-        <main class="content {% if not session.get('user_id') %}auth-layout{% endif %}">
+
+        <main class="workspace">
             {% if session.get('user_id') %}
-            <header class="topbar">
+            <header class="workspace-header">
                 <div>
-                    <p class="eyebrow">Security Console</p>
-                    <h2>{% block page_heading %}Professional Password Control{% endblock %}</h2>
+                    <p class="page-kicker">Vault Ops</p>
+                    <h2>{% block page_heading %}Control Center{% endblock %}</h2>
                 </div>
-                <div class="topbar-chip">Session active for {{ session.get('username') }}</div>
+                <div class="header-status">
+                    <span class="status-dot"></span>
+                    <span>Session active for {{ session.get('username') }}</span>
+                </div>
             </header>
             {% endif %}
+
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     <div class="flash-stack">
@@ -57,6 +82,7 @@
                     </div>
                 {% endif %}
             {% endwith %}
+
             {% block content %}{% endblock %}
         </main>
     </div>

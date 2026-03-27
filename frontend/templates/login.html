@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Login | Secure Vault{% endblock %}
 {% block content %}
-<section class="auth-card auth-card-wide">
-    <div class="hero-copy auth-hero premium-hero">
-        <span class="eyebrow">Security First</span>
-        <h2>Operate your vault from a calm, high-trust workspace.</h2>
-        <p>Secure Vault combines bcrypt authentication, PBKDF2-derived encryption keys, and focused session controls in a UI built to feel deliberate and dependable.</p>
-        <div class="feature-pills">
-            <span>Encrypted credential vault</span>
-            <span>Master password confirmation</span>
-            <span>Security activity tracking</span>
+<section class="access-shell">
+    <div class="access-hero">
+        <span class="page-kicker">Secure Access</span>
+        <h2>Enter the vault through a high-trust security gateway.</h2>
+        <p>Secure Vault combines bcrypt hashing, PBKDF2-derived encryption keys, and auditable credential workflows in a command-center interface.</p>
+        <div class="hero-matrix">
+            <div>
+                <strong>bcrypt</strong>
+                <span>salted hashing</span>
+            </div>
+            <div>
+                <strong>Fernet</strong>
+                <span>credential encryption</span>
+            </div>
+            <div>
+                <strong>15 min</strong>
+                <span>session timeout</span>
+            </div>
         </div>
     </div>
-    <form method="post" class="form-card elevated-form">
-        <div class="form-intro">
-            <p class="eyebrow">Access</p>
-            <h3>Sign in</h3>
-            <p>Continue to your encrypted dashboard.</p>
+    <form method="post" class="access-panel">
+        <div class="access-head">
+            <span class="page-kicker">Authentication</span>
+            <h3>Login</h3>
+            <p>Authenticate with your master password to enter the control center.</p>
         </div>
         <label>Username
             <input type="text" name="username" required minlength="3" autocomplete="username" placeholder="Enter your username">
@@ -24,7 +33,7 @@
         <label>Master Password
             <input type="password" name="master_password" required minlength="12" autocomplete="current-password" placeholder="Enter your master password">
         </label>
-        <button type="submit" class="button primary">Login</button>
+        <button type="submit" class="button primary wide">Access Vault</button>
         <p class="form-link">No account yet? <a href="{{ url_for('register') }}">Create one</a></p>
     </form>
 </section>

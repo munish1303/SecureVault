@@ -1,24 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Security Tools | Secure Vault{% endblock %}
-{% block page_heading %}Password Tools{% endblock %}
+{% block page_heading %}Utility Console{% endblock %}
 {% block content %}
-<section class="hero-banner slim-banner">
-    <div class="hero-banner-copy">
-        <span class="eyebrow">Password Tools</span>
-        <h3>Generate and evaluate high-quality credentials</h3>
-        <p>Use the generator for new secrets and the analyzer to evaluate strength based on entropy, length, and character variety.</p>
+<section class="command-hero compact-hero">
+    <div class="hero-main-panel">
+        <div class="hero-main-copy">
+            <span class="page-kicker">Utility Console</span>
+            <h3>Generate stronger credentials and evaluate password resilience.</h3>
+            <p>Use the operations toolkit to create secure passwords and score their strength before deploying them into the vault.</p>
+        </div>
     </div>
 </section>
 
-<section class="tool-grid premium-tool-grid">
-    <div class="panel panel-strong tool-panel">
-        <div class="panel-head">
+<section class="tool-console-grid">
+    <section class="console-panel light-panel utility-panel">
+        <div class="console-head">
             <div>
-                <p class="eyebrow">Generator</p>
-                <h3>Password Generator</h3>
+                <span class="panel-tag dark-tag">Generator</span>
+                <h3>Password generator</h3>
             </div>
         </div>
-        <form id="generatorForm" class="grid-form">
+        <form id="generatorForm" class="grid-form command-form">
             <label>Password Length
                 <input type="number" name="length" min="8" max="64" value="18">
             </label>
@@ -27,7 +29,7 @@
             <label class="toggle-row"><input type="checkbox" name="use_symbols" checked> Include symbols</label>
             <button type="submit" class="button primary">Generate</button>
         </form>
-        <div class="generated-box premium-box">
+        <div class="generated-box utility-output">
             <code id="generatedPassword">Generate a password to see it here.</code>
             <button class="button small secondary" id="copyGeneratedBtn" type="button">Copy</button>
         </div>
@@ -36,16 +38,16 @@
             <div class="meter"><div id="generatedStrengthBar"></div></div>
             <small id="generatedEntropy">Entropy: 0 bits</small>
         </div>
-    </div>
+    </section>
 
-    <div class="panel panel-strong tool-panel">
-        <div class="panel-head">
+    <section class="console-panel utility-rail-panel">
+        <div class="console-head tight-head">
             <div>
-                <p class="eyebrow">Analyzer</p>
-                <h3>Password Strength Checker</h3>
+                <span class="panel-tag">Analyzer</span>
+                <h3>Password strength checker</h3>
             </div>
         </div>
-        <form id="strengthForm" class="grid-form">
+        <form id="strengthForm" class="grid-form command-form">
             <label class="full-width">Test Password
                 <input type="text" name="password" id="strengthPassword" placeholder="Enter a password to analyze">
             </label>
@@ -55,11 +57,11 @@
             <div class="meter"><div id="strengthBar"></div></div>
             <small id="entropyLabel">Entropy: 0 bits</small>
         </div>
-        <div class="mini-points">
+        <div class="session-badges">
             <span>Entropy estimate</span>
             <span>Character variety</span>
-            <span>Length-based scoring</span>
+            <span>Length scoring</span>
         </div>
-    </div>
+    </section>
 </section>
 {% endblock %}

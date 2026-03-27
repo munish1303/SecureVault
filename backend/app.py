@@ -101,13 +101,37 @@ class PasswordManagerApp:
         @login_required
         def dashboard():
             user_id = session["user_id"]
+            alerts = self.db.suspicious_events(user_id)
+            if session.get("show_test_alert"):
+                alerts.insert(
+                    0,
+                    {
+                        "level": "high",
+                        "message": "Test alert injected for UI verification. This is a simulated security event.",
+                    },
+                )
             return render_template(
                 "dashboard.html",
                 entries=self.db.get_passwords_for_user(user_id),
                 logs=self.db.recent_logs(user_id),
-                alerts=self.db.suspicious_events(user_id),
+                alerts=alerts,
                 active_page="dashboard",
             )
+
+        @app.route("/alerts/test", methods=["POST"])
+        @login_required
+        def trigger_test_alert():
+            session["show_test_alert"] = True
+            self.db.log_event(session["user_id"], "SECURITY_ALERT", "Test alert manually triggered for UI verification.")
+            flash("Test security alert triggered.", "warning")
+            return redirect(url_for("dashboard"))
+
+        @app.route("/alerts/test/clear", methods=["POST"])
+        @login_required
+        def clear_test_alert():
+            session.pop("show_test_alert", None)
+            flash("Test security alert cleared.", "info")
+            return redirect(url_for("dashboard"))
 
         @app.route("/passwords/add", methods=["GET", "POST"])
         @login_required
@@ -244,4 +268,5 @@ app = password_manager.app
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
