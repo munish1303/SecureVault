@@ -1,21 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Register | Secure Vault{% endblock %}
 {% block content %}
-<section class="auth-card">
-    <div class="hero-copy">
+<section class="auth-card auth-card-wide">
+    <div class="hero-copy auth-hero premium-hero register-hero">
         <span class="eyebrow">Create Vault</span>
-        <h2>Register a secure account</h2>
-        <p>Your master password is hashed with bcrypt, and your vault encryption key is derived from it using PBKDF2 and Fernet.</p>
+        <h2>Set up a modern secure password workspace.</h2>
+        <p>Your master password is never stored in plaintext. It is hashed with bcrypt, while your vault encryption key is derived on demand from your password and a unique salt.</p>
+        <div class="feature-pills">
+            <span>Salted bcrypt hashing</span>
+            <span>Fernet encryption</span>
+            <span>Starter credentials ready</span>
+        </div>
     </div>
-    <form method="post" class="form-card">
+    <form method="post" class="form-card elevated-form">
+        <div class="form-intro">
+            <p class="eyebrow">Registration</p>
+            <h3>Create account</h3>
+            <p>New accounts receive starter encrypted credentials automatically.</p>
+        </div>
         <label>Username
-            <input type="text" name="username" required minlength="3" autocomplete="username">
+            <input type="text" name="username" required minlength="3" autocomplete="username" placeholder="Choose a username">
         </label>
         <label>Master Password
-            <input type="password" name="master_password" required minlength="12" autocomplete="new-password">
+            <input type="password" name="master_password" required minlength="12" autocomplete="new-password" placeholder="Create a strong master password">
         </label>
         <label>Confirm Master Password
-            <input type="password" name="confirm_password" required minlength="12" autocomplete="new-password">
+            <input type="password" name="confirm_password" required minlength="12" autocomplete="new-password" placeholder="Confirm your master password">
         </label>
         <button type="submit" class="button primary">Register</button>
         <p class="form-link">Already registered? <a href="{{ url_for('login') }}">Sign in</a></p>

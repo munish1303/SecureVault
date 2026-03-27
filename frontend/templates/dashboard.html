@@ -1,18 +1,48 @@
 {% extends "base.html" %}
 {% block title %}Dashboard | Secure Vault{% endblock %}
+{% block page_heading %}Vault Overview{% endblock %}
 {% block content %}
-<section class="section-header">
-    <div>
+<section class="hero-banner">
+    <div class="hero-banner-copy">
         <span class="eyebrow">Vault Overview</span>
-        <h2>Your saved credentials</h2>
-        <p>Passwords stay encrypted at rest and are only decrypted after master password verification.</p>
+        <h3>Your encrypted workspace at a glance</h3>
+        <p>Passwords stay encrypted at rest, reveal actions require master-password verification, and recent events are tracked for audit visibility.</p>
     </div>
-    <a href="{{ url_for('add_password') }}" class="button primary">Add Credential</a>
+    <div class="hero-banner-actions">
+        <div class="stat-card compact-stat">
+            <span class="stat-label">Saved items</span>
+            <strong>{{ entries|length }}</strong>
+        </div>
+        <a href="{{ url_for('add_password') }}" class="button primary">Add Credential</a>
+    </div>
+</section>
+
+<section class="stats-grid">
+    <article class="stat-card">
+        <span class="stat-label">Stored Credentials</span>
+        <strong>{{ entries|length }}</strong>
+        <p>Encrypted website and app logins inside your vault.</p>
+    </article>
+    <article class="stat-card">
+        <span class="stat-label">Recent Activity</span>
+        <strong>{{ logs|length }}</strong>
+        <p>Tracked actions available for review and anomaly detection.</p>
+    </article>
+    <article class="stat-card">
+        <span class="stat-label">Security Alerts</span>
+        <strong>{{ alerts|length }}</strong>
+        <p>Warnings triggered by suspicious behavior and failed login patterns.</p>
+    </article>
 </section>
 
 {% if alerts %}
-<section class="panel">
-    <h3>Security Alerts</h3>
+<section class="panel panel-strong">
+    <div class="panel-head">
+        <div>
+            <p class="eyebrow">Security Alerts</p>
+            <h3>Review unusual activity</h3>
+        </div>
+    </div>
     <div class="alert-grid">
         {% for alert in alerts %}
         <div class="alert-card {{ alert.level }}">
@@ -24,11 +54,16 @@
 </section>
 {% endif %}
 
-<section class="panel">
-    <h3>Stored Passwords</h3>
+<section class="panel panel-strong">
+    <div class="panel-head">
+        <div>
+            <p class="eyebrow">Stored Passwords</p>
+            <h3>Credential inventory</h3>
+        </div>
+    </div>
     {% if entries %}
-    <div class="table-wrap">
-        <table>
+    <div class="table-wrap polished-table-wrap">
+        <table class="vault-table">
             <thead>
                 <tr>
                     <th>Site</th>
@@ -41,7 +76,15 @@
             <tbody>
                 {% for entry in entries %}
                 <tr>
-                    <td>{{ entry.site }}</td>
+                    <td>
+                        <div class="entry-site">
+                            <span class="entry-badge">{{ entry.site[:1]|upper }}</span>
+                            <div>
+                                <strong>{{ entry.site }}</strong>
+                                <small>Credential item</small>
+                            </div>
+                        </div>
+                    </td>
                     <td>{{ entry.username }}</td>
                     <td>{{ entry.notes or 'No notes' }}</td>
                     <td>{{ entry.updated_at|datetime }}</td>
@@ -56,27 +99,44 @@
         </table>
     </div>
     {% else %}
-    <p class="empty-state">No credentials stored yet. Add your first entry to start building the vault.</p>
+    <div class="empty-state-panel">
+        <div class="empty-state-mark">01</div>
+        <div>
+            <h4>Your vault is ready for its first credential.</h4>
+            <p>Add a website, app, or service login to start building a secure encrypted inventory.</p>
+        </div>
+    </div>
     {% endif %}
 </section>
 
-<section class="panel split-panel">
+<section class="panel split-panel split-panel-uneven">
     <div>
-        <h3>Recent Activity</h3>
-        <ul class="log-list">
+        <div class="panel-head">
+            <div>
+                <p class="eyebrow">Recent Activity</p>
+                <h3>Audit trail</h3>
+            </div>
+        </div>
+        <ul class="log-list refined-log-list">
             {% for log in logs %}
             <li>
-                <strong>{{ log.action.replace('_', ' ') }}</strong>
-                <span>{{ log.details or 'No details provided.' }}</span>
+                <span class="log-pill">{{ log.action.replace('_', ' ') }}</span>
+                <strong>{{ log.details or 'No details provided.' }}</strong>
                 <time>{{ log.timestamp|datetime }}</time>
             </li>
             {% endfor %}
         </ul>
     </div>
-    <div class="info-card">
-        <h3>Session Controls</h3>
+    <div class="info-card premium-info-card">
+        <p class="eyebrow">Session Controls</p>
+        <h3>Security posture</h3>
         <p>This application uses Flask sessions and automatically expires inactive sessions after 15 minutes.</p>
         <p>Revealing, updating, and deleting passwords requires master password confirmation even after login.</p>
+        <div class="mini-points">
+            <span>Session timeout protection</span>
+            <span>Encrypted password-at-rest model</span>
+            <span>Brute-force aware login handling</span>
+        </div>
     </div>
 </section>
 

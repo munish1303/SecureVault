@@ -4,29 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Secure Vault{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
     <div class="page-shell">
         {% if session.get('user_id') %}
         <aside class="sidebar">
-            <div>
-                <h1>Secure Vault</h1>
-                <p class="muted">Password Manager</p>
+            <div class="sidebar-top">
+                <div class="brand-mark">SV</div>
+                <div>
+                    <h1>Secure Vault</h1>
+                    <p class="muted">Encrypted password workspace</p>
+                </div>
             </div>
-            <nav class="nav-links">
-                <a href="{{ url_for('dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">Dashboard</a>
-                <a href="{{ url_for('add_password') }}" class="{% if active_page == 'add' %}active{% endif %}">Add Password</a>
-                <a href="{{ url_for('tools') }}" class="{% if active_page == 'tools' %}active{% endif %}">Generator & Strength</a>
-                <a href="{{ url_for('logout') }}">Logout</a>
-            </nav>
+            <div class="sidebar-panel">
+                <p class="sidebar-label">Workspace</p>
+                <nav class="nav-links">
+                    <a href="{{ url_for('dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">Dashboard</a>
+                    <a href="{{ url_for('add_password') }}" class="{% if active_page == 'add' %}active{% endif %}">Add Password</a>
+                    <a href="{{ url_for('tools') }}" class="{% if active_page == 'tools' %}active{% endif %}">Generator & Strength</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </nav>
+            </div>
             <div class="sidebar-footer">
-                <p>Signed in as</p>
+                <p class="sidebar-label">Current Session</p>
                 <strong>{{ session.get('username') }}</strong>
+                <span>Protected by session timeout and master-password verification.</span>
             </div>
         </aside>
         {% endif %}
         <main class="content {% if not session.get('user_id') %}auth-layout{% endif %}">
+            {% if session.get('user_id') %}
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">Security Console</p>
+                    <h2>{% block page_heading %}Professional Password Control{% endblock %}</h2>
+                </div>
+                <div class="topbar-chip">Session active for {{ session.get('username') }}</div>
+            </header>
+            {% endif %}
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     <div class="flash-stack">

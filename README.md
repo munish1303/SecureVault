@@ -10,6 +10,7 @@ Secure Vault is a Flask-based password manager that uses bcrypt for master passw
   auth.py
   encryption.py
   models.py
+  seeder.py
   utils.py
 /frontend
   /templates
@@ -41,6 +42,20 @@ python run.py
 ```
 
 5. Open `http://127.0.0.1:5000` in your browser.
+
+## Demo Data
+
+The app includes starter credentials in two ways:
+
+- A built-in demo account is created on first run.
+- Any newly registered account also gets the same starter encrypted credentials automatically.
+
+Demo login:
+
+- Username: `demo_user`
+- Master Password: `DemoVault@2026!`
+
+Starter stored passwords include GitHub, Gmail, Netflix, AWS Console, and LinkedIn.
 
 ## Security Design
 

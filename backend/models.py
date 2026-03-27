@@ -88,6 +88,11 @@ class DatabaseManager:
         with self.connect() as conn:
             return conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
 
+    def count_passwords_for_user(self, user_id: int) -> int:
+        with self.connect() as conn:
+            row = conn.execute("SELECT COUNT(*) AS total FROM passwords WHERE user_id = ?", (user_id,)).fetchone()
+        return int(row["total"]) if row else 0
+
     def get_user_by_id(self, user_id: int) -> Optional[sqlite3.Row]:
         with self.connect() as conn:
             return conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()

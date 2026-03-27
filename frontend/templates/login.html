@@ -1,18 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Login | Secure Vault{% endblock %}
 {% block content %}
-<section class="auth-card">
-    <div class="hero-copy">
+<section class="auth-card auth-card-wide">
+    <div class="hero-copy auth-hero premium-hero">
         <span class="eyebrow">Security First</span>
-        <h2>Access your encrypted vault</h2>
-        <p>Authenticate with your master password to manage credentials, generate strong passwords, and review security activity.</p>
+        <h2>Operate your vault from a calm, high-trust workspace.</h2>
+        <p>Secure Vault combines bcrypt authentication, PBKDF2-derived encryption keys, and focused session controls in a UI built to feel deliberate and dependable.</p>
+        <div class="feature-pills">
+            <span>Encrypted credential vault</span>
+            <span>Master password confirmation</span>
+            <span>Security activity tracking</span>
+        </div>
     </div>
-    <form method="post" class="form-card">
+    <form method="post" class="form-card elevated-form">
+        <div class="form-intro">
+            <p class="eyebrow">Access</p>
+            <h3>Sign in</h3>
+            <p>Continue to your encrypted dashboard.</p>
+        </div>
         <label>Username
-            <input type="text" name="username" required minlength="3" autocomplete="username">
+            <input type="text" name="username" required minlength="3" autocomplete="username" placeholder="Enter your username">
         </label>
         <label>Master Password
-            <input type="password" name="master_password" required minlength="12" autocomplete="current-password">
+            <input type="password" name="master_password" required minlength="12" autocomplete="current-password" placeholder="Enter your master password">
         </label>
         <button type="submit" class="button primary">Login</button>
         <p class="form-link">No account yet? <a href="{{ url_for('register') }}">Create one</a></p>

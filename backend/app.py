@@ -6,6 +6,7 @@ from flask import Flask, flash, jsonify, redirect, render_template, request, ses
 from .auth import AuthService
 from .encryption import EncryptionManager
 from .models import DatabaseManager
+from .seeder import DemoSeeder
 from .utils import PasswordTools, format_timestamp, login_required
 
 
@@ -21,6 +22,8 @@ class PasswordManagerApp:
         self.app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=15)
         self.db = DatabaseManager()
         self.auth_service = AuthService(self.db)
+        self.seeder = DemoSeeder(self.db, self.auth_service)
+        self.seeder.seed_demo_data()
         self._register_filters()
         self._register_routes()
 
@@ -57,6 +60,9 @@ class PasswordManagerApp:
                     return redirect(url_for("register"))
 
                 result, message = self.auth_service.register_user(username, master_password)
+                if result:
+                    user = self.db.get_user_by_username(username)
+                    self.seeder.seed_user_credentials(user, master_password)
                 flash(message, "success" if result else "danger")
                 return redirect(url_for("login" if result else "register"))
 
@@ -70,6 +76,7 @@ class PasswordManagerApp:
 
                 result, message, user = self.auth_service.verify_login(username, master_password)
                 if result and user:
+                    self.seeder.seed_user_credentials(user, master_password)
                     session.clear()
                     session["user_id"] = user["id"]
                     session["username"] = user["username"]
@@ -237,3 +244,4 @@ app = password_manager.app
 
 if __name__ == "__main__":
     app.run(debug=True)
+
