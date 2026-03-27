@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Security Tools | Secure Vault{% endblock %}
+{% block content %}
+<section class="section-header">
+    <div>
+        <span class="eyebrow">Password Tools</span>
+        <h2>Generate and evaluate passwords</h2>
+        <p>Use the generator for new credentials and the strength checker to estimate entropy and resilience.</p>
+    </div>
+</section>
+
+<section class="tool-grid">
+    <div class="panel">
+        <h3>Password Generator</h3>
+        <form id="generatorForm" class="grid-form">
+            <label>Password Length
+                <input type="number" name="length" min="8" max="64" value="18">
+            </label>
+            <label><input type="checkbox" name="use_uppercase" checked> Include uppercase letters</label>
+            <label><input type="checkbox" name="use_numbers" checked> Include numbers</label>
+            <label><input type="checkbox" name="use_symbols" checked> Include symbols</label>
+            <button type="submit" class="button primary">Generate</button>
+        </form>
+        <div class="generated-box">
+            <code id="generatedPassword">Generate a password to see it here.</code>
+            <button class="button small secondary" id="copyGeneratedBtn" type="button">Copy</button>
+        </div>
+        <div class="strength-meter">
+            <span id="generatedStrengthLabel">Strength: N/A</span>
+            <div class="meter"><div id="generatedStrengthBar"></div></div>
+            <small id="generatedEntropy">Entropy: 0 bits</small>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Password Strength Checker</h3>
+        <form id="strengthForm" class="grid-form">
+            <label>Test Password
+                <input type="text" name="password" id="strengthPassword" placeholder="Enter a password to analyze">
+            </label>
+        </form>
+        <div class="strength-meter">
+            <span id="strengthLabel">Strength: N/A</span>
+            <div class="meter"><div id="strengthBar"></div></div>
+            <small id="entropyLabel">Entropy: 0 bits</small>
+        </div>
+        <p class="muted">Strength is based on length, estimated entropy, and character set variety.</p>
+    </div>
+</section>
+{% endblock %}

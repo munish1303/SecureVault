@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Login | Secure Vault{% endblock %}
+{% block content %}
+<section class="auth-card">
+    <div class="hero-copy">
+        <span class="eyebrow">Security First</span>
+        <h2>Access your encrypted vault</h2>
+        <p>Authenticate with your master password to manage credentials, generate strong passwords, and review security activity.</p>
+    </div>
+    <form method="post" class="form-card">
+        <label>Username
+            <input type="text" name="username" required minlength="3" autocomplete="username">
+        </label>
+        <label>Master Password
+            <input type="password" name="master_password" required minlength="12" autocomplete="current-password">
+        </label>
+        <button type="submit" class="button primary">Login</button>
+        <p class="form-link">No account yet? <a href="{{ url_for('register') }}">Create one</a></p>
+    </form>
+</section>
+{% endblock %}

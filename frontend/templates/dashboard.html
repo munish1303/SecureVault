@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Secure Vault{% endblock %}
+{% block content %}
+<section class="section-header">
+    <div>
+        <span class="eyebrow">Vault Overview</span>
+        <h2>Your saved credentials</h2>
+        <p>Passwords stay encrypted at rest and are only decrypted after master password verification.</p>
+    </div>
+    <a href="{{ url_for('add_password') }}" class="button primary">Add Credential</a>
+</section>
+
+{% if alerts %}
+<section class="panel">
+    <h3>Security Alerts</h3>
+    <div class="alert-grid">
+        {% for alert in alerts %}
+        <div class="alert-card {{ alert.level }}">
+            <strong>{{ alert.level|upper }}</strong>
+            <p>{{ alert.message }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="panel">
+    <h3>Stored Passwords</h3>
+    {% if entries %}
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Site</th>
+                    <th>Username</th>
+                    <th>Notes</th>
+                    <th>Updated</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.site }}</td>
+                    <td>{{ entry.username }}</td>
+                    <td>{{ entry.notes or 'No notes' }}</td>
+                    <td>{{ entry.updated_at|datetime }}</td>
+                    <td class="actions">
+                        <button class="button small reveal-btn" data-entry-id="{{ entry.id }}" data-site="{{ entry.site }}">Reveal</button>
+                        <a href="{{ url_for('edit_password', entry_id=entry.id) }}" class="button small secondary">Edit</a>
+                        <button class="button small danger delete-btn" data-entry-id="{{ entry.id }}" data-site="{{ entry.site }}">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="empty-state">No credentials stored yet. Add your first entry to start building the vault.</p>
+    {% endif %}
+</section>
+
+<section class="panel split-panel">
+    <div>
+        <h3>Recent Activity</h3>
+        <ul class="log-list">
+            {% for log in logs %}
+            <li>
+                <strong>{{ log.action.replace('_', ' ') }}</strong>
+                <span>{{ log.details or 'No details provided.' }}</span>
+                <time>{{ log.timestamp|datetime }}</time>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="info-card">
+        <h3>Session Controls</h3>
+        <p>This application uses Flask sessions and automatically expires inactive sessions after 15 minutes.</p>
+        <p>Revealing, updating, and deleting passwords requires master password confirmation even after login.</p>
+    </div>
+</section>
+
+<div class="modal hidden" id="revealModal">
+    <div class="modal-card">
+        <h3>Reveal Password</h3>
+        <p id="revealDescription"></p>
+        <form id="revealForm">
+            <input type="hidden" name="entry_id" id="revealEntryId">
+            <label>Confirm Master Password
+                <input type="password" name="master_password" id="revealMasterPassword" required>
+            </label>
+            <div class="revealed-output hidden" id="revealedOutput">
+                <code id="revealedPassword"></code>
+                <button type="button" class="button small secondary" id="copyPasswordBtn">Copy</button>
+            </div>
+            <div class="modal-actions">
+                <button type="submit" class="button primary">Reveal</button>
+                <button type="button" class="button secondary" data-close-modal>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal hidden" id="deleteModal">
+    <div class="modal-card">
+        <h3>Delete Credential</h3>
+        <p id="deleteDescription"></p>
+        <form id="deleteForm" method="post">
+            <label>Confirm Master Password
+                <input type="password" name="master_password" required>
+            </label>
+            <div class="modal-actions">
+                <button type="submit" class="button danger">Delete</button>
+                <button type="button" class="button secondary" data-close-modal>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
